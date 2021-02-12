@@ -1,41 +1,54 @@
 /***************************************************
-湖南创乐博智能科技有限公司
-name:Dual-color LED 
-function:you can see the dual-color LED changes from red to green alternately,
-as well as flashing a mixed color during the alternation.
-connection:
-Dual-color LED    Arduin Uno R3
-R                  11
-GND                GND
-G                  10
+  湖南创乐博智能科技有限公司
+  name:Dual-color LED
+  function:you can see the dual-color LED changes from red to green alternately,
+  as well as flashing a mixed color during the alternation.
+  connection:
+  Dual-color LED    Arduin Uno R3
+  R                  11
+  GND                GND
+  G                  10
 ****************************************************/
 
 int redPin = 11;    // select the pin for the red LED
 int greenPin = 10;    // select the pin for the blueLED
-int val = 0;    
+int val = 0;
 
-void setup() 
+void setup()
 {
   pinMode(redPin, OUTPUT); //set redPin as OUTPUT
   pinMode(greenPin, OUTPUT);//set greenPin as OUTPUT
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 /******************************************************/
-void loop() 
+void loop()
 {
-  for(val=255; val>0; val--) //
-  {
-   analogWrite(redPin, val); //red value decrease
-   analogWrite(greenPin, 255-val);//green value increase
-   Serial.println(val, DEC);//print the val on in serial monitor
-   delay(30); //delay 30ms
+  //  for(val=255; val>0; val--) //
+  //  {
+  //   analogWrite(redPin, val); //red value decrease
+  //   analogWrite(greenPin, 255-val);//green value increase
+  //   Serial.println(val, DEC);//print the val on in serial monitor
+  //   delay(30); //delay 30ms
+  //  }
+  //for(val=0; val<255; val++)
+  //  {
+  //   analogWrite(redPin, val); //red value increase
+  //   analogWrite(greenPin, 255-val);//green value decrease
+  //   Serial.println(val, DEC);//print the val on in serial monitor
+  //   delay(30); //delay 30ms
+  //  }
+  for (val = 0; val < 255; val ++) {
+    if (val % 2 == 0) {
+      analogWrite(redPin, 255);
+      analogWrite(greenPin, 0);
+
+    } else {
+      analogWrite(redPin, 0);
+      analogWrite(greenPin, 255);
+    }
+    Serial.println(val, DEC);
+    delay(1000);
   }
-for(val=0; val<255; val++)
-  {
-   analogWrite(redPin, val); //red value increase
-   analogWrite(greenPin, 255-val);//green value decrease
-   Serial.println(val, DEC);//print the val on in serial monitor
-   delay(30); //delay 30ms
-  }
+
 }
 /********************************************************/

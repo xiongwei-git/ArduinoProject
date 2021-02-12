@@ -1,10 +1,10 @@
 /********************************************
- * 湖南创乐博智能科技有限公司
- * name:Relay Module
- * function: you may hear ticktock. That's the normally closed contact opened and the normally open contact closed.
+   湖南创乐博智能科技有限公司
+   name:Relay Module
+   function: you may hear ticktock. That's the normally closed contact opened and the normally open contact closed.
  ********************************************/
 /**********************************************/
-const int relayPin =7; //the "s" of relay module attach to
+const int relayPin = 7; //the "s" of relay module attach to
 /**********************************************/
 void setup()
 {
@@ -15,9 +15,7 @@ void loop()
 {
   digitalWrite(relayPin, HIGH); //Close the relay
   delay(1000); //wait for 1 second
-  digitalWrite(relayPin, LOW); //disconnect the relay 
+  digitalWrite(relayPin, LOW); //disconnect the relay
   delay(1000); //wait for 1 second
 }
 /*************************************************/
-
-
